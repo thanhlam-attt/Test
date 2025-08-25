@@ -1,0 +1,30 @@
+<!-- file: cors_test.html -->
+<!DOCTYPE html>
+<html>
+<head><title>CORS Test</title></head>
+<body>
+<h2>Test CORS</h2>
+<button onclick="callAPI()">Call Cross-Origin API</button>
+<pre id="output"></pre>
+
+<script>
+function callAPI() {
+    fetch("http://10.1.27.129:12000/ms/c02-bo-system-management/corp/margin-rate/get-list-margin-rate", {
+        method: "POST",
+        headers: {
+            "Origin": "http://10.1.27.129:12000",
+            "Content-Type": "application/json",
+        },
+        body: '{"refNo":"emb_nhap-2025082511120864"}',
+    })
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("output").innerText = data;
+    })
+    .catch(error => {
+        document.getElementById("output").innerText = "CORS Error: " + error;
+    });
+}
+</script>
+</body>
+</html>
