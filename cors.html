@@ -9,13 +9,13 @@
 
 <script>
 function callAPI() {
-    fetch("http://10.1.27.129:12000/ms/c02-bo-system-management/corp/margin-rate/get-list-margin-rate", {
+    fetch("http://abc.com", {
         method: "POST",
         headers: {
-            "Origin": "http://10.1.27.129:12000",
+            "Origin": "http://abc.com",
             "Content-Type": "application/json",
         },
-        body: '{"refNo":"emb_nhap-2025082511120864"}',
+        body: '{"refNo":"hehe"}',
     })
     .then(response => response.text())
     .then(data => {
